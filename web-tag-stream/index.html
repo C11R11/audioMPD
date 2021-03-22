@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <!-- <script src="jsmediatags.min.js"></script> -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.10.2/video-js.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.10.2/video.min.js"></script>
+    </head>
+    <body>
+
+        <audio
+        id="my-player"
+        class="video-js"
+        controls
+        autoplay="true"
+        poster="poster.png"
+        >
+        <!-- data-setup='{}' -->
+      <source src="http://190.45.165.100:8000/" type="audio/ogg"></source>
+      <p class="vjs-no-js">
+        To view this video please enable JavaScript, and consider upgrading to a
+        web browser that
+        <a href="https://videojs.com/html5-video-support/" target="_blank">
+          supports HTML5 video
+        </a>
+      </p>
+    </audio>
+
+    <script>
+        var myPlayer = videojs('my-player');
+
+        myPlayer.src({type: 'audio/ogg', src: 'http://190.45.165.100:8000'});
+        myPlayer.ready(function() {
+        // get, should be false
+        console.log(myPlayer.muted());
+        // set to true
+        myPlayer.muted(false);
+        myPlayer.play()
+        // get should be true
+        console.log(myPlayer.muted());
+        });
+    </script>
+
+</html>
